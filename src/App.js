@@ -1,14 +1,18 @@
 import {
-  Container,
   createMuiTheme,
   makeStyles,
-  Paper,
   ThemeProvider,
   Typography,
 } from "@material-ui/core"
 import React from "react"
+import DenseAppBar from "./AppBar"
 
-const useStyles = makeStyles({})
+const useStyles = makeStyles({
+  root: {
+    width: "100%",
+    background: "black",
+  },
+})
 
 function App() {
   const theme = createMuiTheme({
@@ -17,18 +21,13 @@ function App() {
     },
   })
 
-  const classes = useStyles({
-    root: {
-      background: "black",
-      overflow: "hidden",
-    },
-  })
+  const classes = useStyles()
 
   return (
     <ThemeProvider theme={theme}>
-      <Paper className={classes.root}>
-        <Typography>Hello</Typography>
-      </Paper>
+      <div>
+        <DenseAppBar />
+      </div>
     </ThemeProvider>
   )
 }
