@@ -2,9 +2,13 @@ import {
   AppBar,
   Box,
   Button,
+  Card,
+  CardContent,
+  CardMedia,
   Container,
   createMuiTheme,
   Divider,
+  Grid,
   IconButton,
   Paper,
   ThemeProvider,
@@ -12,6 +16,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import { SearchOutlined } from "@material-ui/icons";
+import NavbarLinks from "./Components/NavbarLinks";
 
 const whiteTheme = createMuiTheme({
   palette: {
@@ -60,6 +65,23 @@ export default function App() {
               </Box>
             </Box>
             <Divider style={{ backgroundColor: "#2E2E30" }} />
+            <NavbarLinks />
+
+            <img
+              src="https://source.unsplash.com/random"
+              alt="random stuff"
+              style={{
+                height: "500px",
+                width: "100%",
+                backgroundPosition: "center",
+              }}
+            />
+
+            <Typography variant="body2" color="textSecondary" component="p">
+              This impressive paella is a perfect party dish and a fun meal to
+              cook together with your guests. Add 1 cup of frozen peas along
+              with the mussels, if you like.
+            </Typography>
           </Paper>
         </Container>
       </Paper>
