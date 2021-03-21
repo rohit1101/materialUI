@@ -13,8 +13,9 @@ import {
   Typography,
 } from "@material-ui/core";
 import { blue } from "@material-ui/core/colors";
-
+import * as Yup from "yup";
 import { Search } from "@material-ui/icons";
+import { useFormik } from "formik";
 import React from "react";
 
 const useStyles = makeStyles({
@@ -38,6 +39,56 @@ function App() {
   });
 
   const classes = useStyles();
+
+  // function validate(values) {
+  //   let errors = {};
+  //   if (!values.firstName) {
+  //     errors.firstName = "Required";
+  //   }
+  //   if (!values.lastName) {
+  //     errors.lastName = "Required";
+  //   }
+  //   if (!values.email) {
+  //     errors.email = "Required";
+  //   } else if (
+  //     !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
+  //   ) {
+  //     errors.email = "Enter a valid Email Address";
+  //   }
+  //   return errors;
+  // }
+
+  const subscribeFormData = useFormik({
+    initialValues: {
+      firstName: "",
+      lastName: "",
+      email: "",
+      jobType: "",
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
+    validationSchema: Yup.object({
+      firstName: Yup.string()
+        .max(5, "must be 5 or less characters")
+        .required("Required"),
+      lastName: Yup.string()
+        .max(2, "must be 2 or less characters")
+        .required("Required"),
+      email: Yup.string()
+        .email("Must be a valid email address")
+        .required("Required"),
+    }),
+    // validate,
+  });
+  const {
+    values,
+    handleChange,
+    handleReset,
+    handleBlur,
+    errors,
+  } = subscribeFormData;
+  console.log(subscribeFormData);
 
   return (
     <ThemeProvider theme={theme}>
@@ -156,16 +207,65 @@ function App() {
               </Typography>
               <Grid container item direction="column" spacing={2}>
                 <Grid item>
-                  <TextField variant="outlined" label="First Name" />
+                  <TextField
+                    variant="outlined"
+                    label="First Name"
+                    name="firstName"
+                    helperText={
+                      Boolean(errors.firstName) ? errors.firstName : null
+                    }
+                    error={Boolean(errors.firstName)}
+                    value={values.firstName}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
                 </Grid>
                 <Grid item>
-                  <TextField variant="outlined" label="Last Name" />
+                  <TextField
+                    variant="outlined"
+                    label="Last Name"
+                    name="lastName"
+                    helperText={
+                      Boolean(errors.lastName) ? errors.lastName : null
+                    }
+                    error={Boolean(errors.lastName)}
+                    value={values.lastName}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
                 </Grid>
                 <Grid item>
-                  <TextField variant="outlined" label="Email Address" />
+                  <TextField
+                    variant="outlined"
+                    label="Email Address"
+                    name="email"
+                    helperText={Boolean(errors.email) ? errors.email : null}
+                    error={Boolean(errors.email)}
+                    value={values.email}
+                    onChange={handleChange}
+                    onBlur={handleBlur}
+                  />
                 </Grid>
                 <Grid item>
-                  <TextField variant="outlined" label="Job Type" />
+                  <TextField
+                    variant="outlined"
+                    label="Job Type"
+                    name="jobType"
+                  />
+                </Grid>
+                <Grid item>
+                  <Button variant="outlined" color="primary" type="submit">
+                    Submit
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="outlined"
+                    color="primary"
+                    onClick={handleReset}
+                  >
+                    Reset
+                  </Button>
                 </Grid>
               </Grid>
             </Grid>
