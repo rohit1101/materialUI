@@ -11,6 +11,7 @@ import {
   ThemeProvider,
   Typography,
 } from "@material-ui/core";
+import { blue, purple } from "@material-ui/core/colors";
 
 import { Search } from "@material-ui/icons";
 import React from "react";
@@ -29,6 +30,9 @@ function App() {
   const theme = createMuiTheme({
     palette: {
       type: "dark",
+      primary: {
+        main: blue[500],
+      },
     },
   });
 
@@ -73,52 +77,72 @@ function App() {
             <Grid item container justify="space-between">
               <Grid item>
                 <Typography>
-                  <Link href="#title">Technology</Link>
+                  <Link color="primary" href="#title">
+                    Technology
+                  </Link>
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography>
-                  <Link href="#title">Design</Link>
+                  <Link color="primary" href="#title">
+                    Design
+                  </Link>
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography>
-                  <Link href="#title">Culture</Link>
+                  <Link color="primary" href="#title">
+                    Culture
+                  </Link>
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography>
-                  <Link href="#title">Business</Link>
+                  <Link color="primary" href="#title">
+                    Business
+                  </Link>
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography>
-                  <Link href="#title">Politics</Link>
+                  <Link color="primary" href="#title">
+                    Politics
+                  </Link>
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography>
-                  <Link href="#title">Opinion</Link>
+                  <Link color="primary" href="#title">
+                    Opinion
+                  </Link>
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography>
-                  <Link href="#title">Science</Link>
+                  <Link color="primary" href="#title">
+                    Science
+                  </Link>
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography>
-                  <Link href="#title">Health</Link>
+                  <Link color="primary" href="#title">
+                    Health
+                  </Link>
                 </Typography>
               </Grid>
               <Grid item>
                 <Typography>
-                  <Link href="#title">Style</Link>
+                  <Link color="primary" href="#title">
+                    Style
+                  </Link>
                 </Typography>
               </Grid>{" "}
               <Grid item>
                 <Typography>
-                  <Link href="#title">Travel</Link>
+                  <Link color="primary" href="#title">
+                    Travel
+                  </Link>
                 </Typography>
               </Grid>{" "}
             </Grid>
