@@ -8,10 +8,11 @@ import {
   Link,
   makeStyles,
   Paper,
+  TextField,
   ThemeProvider,
   Typography,
 } from "@material-ui/core";
-import { blue, purple } from "@material-ui/core/colors";
+import { blue } from "@material-ui/core/colors";
 
 import { Search } from "@material-ui/icons";
 import React from "react";
@@ -150,6 +151,23 @@ function App() {
               <Card>
                 <Typography variant="h4">Title of the featured blog</Typography>
               </Card>
+              <Typography variant="h3" gutterBottom={true}>
+                Subscribe!
+              </Typography>
+              <Grid container item direction="column" spacing={2}>
+                <Grid item>
+                  <TextField variant="outlined" label="First Name" />
+                </Grid>
+                <Grid item>
+                  <TextField variant="outlined" label="Last Name" />
+                </Grid>
+                <Grid item>
+                  <TextField variant="outlined" label="Email Address" />
+                </Grid>
+                <Grid item>
+                  <TextField variant="outlined" label="Job Type" />
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
